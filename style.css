@@ -1,0 +1,295 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #1a1a1a;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Batman theme background effect */
+.bat-signal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at center, #f8c01773 0%, transparent 20%);
+    z-index: 0;
+    animation: glow 4s infinite;
+}
+
+@keyframes glow {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+    100% { opacity: 0.3; }
+}
+
+.container {
+    max-width: 600px;
+    padding: 2.5rem;
+    text-align: center;
+    background: rgba(32, 32, 32, 0.9);
+    border-radius: 15px;
+    border: 1px solid #f8c017;
+    box-shadow: 0 0 30px rgba(248, 192, 23, 0.3);
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    font-size: 3rem;
+    color: #f8c017;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(248, 192, 23, 0.5);
+    letter-spacing: 2px;
+}
+
+/* Profile photo styles */
+.profile-photo {
+    margin: 2rem auto;
+    max-width: 200px;
+    position: relative;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    border: 3px solid #f8c017;
+    box-shadow: 0 0 20px rgba(248, 192, 23, 0.3);
+    transition: all 0.5s ease;
+}
+
+.profile-photo::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 18px;
+    background: linear-gradient(45deg, #f8c017, #ff8c00, #f8c017);
+    z-index: -1;
+    opacity: 0.5;
+    animation: borderGlow 3s linear infinite;
+}
+
+/* Batman-themed button */
+.button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #f8c017;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 0 20px rgba(248, 192, 23, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(248, 192, 23, 0.5);
+    background: #ffcd38;
+}
+
+.button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.1)
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+/* Animations */
+@keyframes borderGlow {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.3; }
+}
+
+@keyframes shine {
+    0% { transform: rotate(45deg) translate(-100%, -100%); }
+    100% { transform: rotate(45deg) translate(100%, 100%); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .profile-photo {
+        max-width: 150px;
+    }
+    
+    .button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.container:hover::before {
+    opacity: 0.5;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #f8c017;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(248, 192, 23, 0.5);
+    letter-spacing: 1px;
+    line-height: 1.3;
+}
+
+/* For better Bengali text rendering */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2rem;
+        letter-spacing: 0.5px;
+    }
+}
+
+p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+/* Update photo styles to be more phone-friendly */
+.photo {
+    position: relative;
+    margin: 2rem auto;  /* Changed from 2rem 0 to center it */
+    max-width: 280px;   /* Reduced from 90% to phone width */
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    border: 2px solid #f8c017;
+    box-shadow: 0 10px 20px rgba(248, 192, 23, 0.2);
+    transition: all 0.5s ease;
+}
+
+/* Adjust for smaller phones */
+@media (max-width: 768px) {
+    .photo {
+        max-width: 240px;  /* Even smaller on mobile devices */
+    }
+    
+    h2 {
+        font-size: 1.8rem;  /* Slightly smaller text for better fit */
+        padding: 0 10px;    /* Add some padding for text */
+    }
+}
+
+.video-container {
+    position: relative;
+    padding: 15px;
+    background: rgba(32, 32, 32, 0.9);
+    border-radius: 15px;
+    margin: 2rem auto;
+    max-width: 400px;
+    border: 1px solid #f8c017;
+    box-shadow: 0 0 20px rgba(248, 192, 23, 0.3);
+}
+
+.video-container video {
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+}
+
+/* Add responsive adjustments */
+@media (max-width: 768px) {
+    .video-container {
+        max-width: 300px;
+        padding: 10px;
+    }
+    
+    .video-container video {
+        max-height: 200px;
+    }
+}
+
+.end-container {
+    background: linear-gradient(135deg, #1a73e8 0%, #34a853 100%);
+    color: white;
+    padding: 3rem;
+}
+
+.end-title {
+    font-size: 5rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite;
+}
+
+.end-text {
+    color: white;
+    font-size: 1.8rem;
+    margin: 2rem 0;
+}
+
+.hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" opacity="0.1"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') repeat;
+    opacity: 0.1;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+} 
